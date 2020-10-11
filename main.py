@@ -8,8 +8,8 @@ if __name__ == '__main__':
         config = json.load(f)
 
     if config.get('use_threads'):
-        server = ThreadServer(port=5555)
+        server = ThreadServer(port=config['port'])
         server.run_server_threaded()
     else:
-        server = SocketServer(port=5555)
+        server = SocketServer(port=config['port'])
         server.run_server()
